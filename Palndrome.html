@@ -1,0 +1,31 @@
+<!-- PAGE TITLE -->
+<head>
+  <title>PALENDROME TEST</title>
+</head>
+
+<!-- FORMAT OUTPUT -->
+<style>
+	.targetdiv{
+		color: darkgreen;
+	}
+</style>
+
+<!-- OUTPUT DIV-->
+<div  id='targetdiv' class='targetdiv'></div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+	// ARRAY
+	const palendromeNumbers = [51, 23, 121, 45, 656, 777, 896, 21, 33, 46];
+
+	//HIGHER ORDER FUNCTIONS
+	const listItems = palendromeNumbers
+		.sort((a, b) => a > b ? 1 : -1)
+		.map((item, index) => ('<li>' + (item.toString().split('').reverse().join('') === item.toString().split('').join('') ? item + ' palendrome': item)+ '</li>'))
+		.join("");
+		
+	//OUTPUT
+	document.getElementById('targetdiv').innerHTML = '<ul>' + listItems; + '</ul>'
+
+</script>
