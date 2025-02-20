@@ -1,0 +1,45 @@
+<!-- PAGE TITLE -->
+<head>
+  <title>PALENDROME TEST</title>
+</head>
+
+<!-- FORMAT OUTPUT -->
+<style>
+	.targetdiv{
+		color: darkgreen;
+	}
+</style>
+
+<!-- OUTPUT DIV-->
+<div  id='mypromise' class='targetdiv'></div>
+<div  id='promiseall' class='targetdiv'></div>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+	<!-- DECLARE A NEW PROMISE -->
+	let myPromise = new Promise((resolve, reject) => { 
+		
+		let testValue = 1 + 1; 
+		if(testValue == 2){	
+			resolve('Success')
+		}else{	
+			reject('Failed')
+		}
+	});
+
+	<!-- IMPLEMENT THE PROMISE -->
+	myPromise.then((message) => {document.getElementById('mypromise').innerHTML =
+                    'Do this when the promise is kept - ' + message}).catch((message) => {document.getElementById('mypromise').innerHTML = 'Do this when the Promise is broken -  ' + message})
+					
+					
+					
+	// PROMISE.ALL
+	const promiseOne = new Promise((resolve, reject) => { resolve('Promise One Returned'); });
+	const promiseTwo = new Promise((resolve, reject) => { resolve('Promise Two Returned'); });
+	const promiseThree = new Promise((resolve, reject) => { resolve('Promise Three Returned') });
+
+	Promise.all([promiseOne,promiseTwo,promiseThree]).then((messages) => {document.getElementById('promiseall').innerHTML = messages;})
+
+</script>
